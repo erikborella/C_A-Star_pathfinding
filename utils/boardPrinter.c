@@ -126,12 +126,26 @@ void printHsCostsBoard(Board *board) {
 void printWallBoard(Board *board) {
     for (int i = 0; i < board->ySize; i++) {
         for (int j = 0; j < board->xSize; j++) {
-            printf(" %c", (board->board[i][j].isWall) ? 'W':' ');
+            printf(" %c", (board->board[i][j].isWall) ? 'W':'-');
             if (j != board->xSize-1)
                 printf(" |");
         }
         printf("\n");
     }
+}
+
+void printAllBoardsData(Board *board) {
+    printf("\nWalls---------------\n");
+    printWallBoard(board);
+
+    printf("\nG cost---------------\n");
+    printGsCostsBoard(board);
+
+    printf("\nH cost---------------\n");
+    printHsCostsBoard(board);
+
+    printf("\nTotal Cost---------------\n");
+    printTotalsCostsBoard(board);
 }
 
 #endif
