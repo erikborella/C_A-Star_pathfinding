@@ -69,6 +69,14 @@ int _findHCostBiggestNumber(Board *board) {
     return biggest;
 }
 
+bool _checkIfNodeIsInPath(Node *node, Node **path, int pathSize) {
+    for (int i = 0; i < pathSize; i++) {
+        if (path[i] == node)
+            return true;
+    }
+    return false;
+}
+
 void printTotalsCostsBoard(Board *board) {
     int biggestTotalCostNumber = _findTotalCostBiggestNumber(board);
 
@@ -146,6 +154,17 @@ void printAllBoardsData(Board *board) {
 
     printf("\nTotal Cost---------------\n");
     printTotalsCostsBoard(board);
+}
+
+void printPath(Board *board, Node **path, int pathSize) {
+    for (int i = 0; i < board->ySize; i++) {
+        for (int j = 0; j < board->xSize; j++) {
+            printf(" %c", (_checkIfNodeIsInPath(&board->board[i][j], path, pathSize)) ? 'C':'-');
+            if (j != board->xSize-1)
+                printf(" |");
+        }
+        printf("\n");
+    }
 }
 
 void printNodeInformation(Node *node) {
