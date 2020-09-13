@@ -148,4 +148,13 @@ void printAllBoardsData(Board *board) {
     printTotalsCostsBoard(board);
 }
 
+void printNodeInformation(Node *node) {
+    printf("Position: %d:%d\n", node->position.x, node->position.y);
+    printf("Costs\n");
+    printf("\tGCost: %d\n\tHCost: %d\n\tTotal: %d\n", node->distances.gCost, node->distances.hCost, node->distances.totalCost);
+    printf("isWall: %d\n", node->isWall);
+    printf("isOpen: %d\n", node->isOpen);
+    printf("LastNode: %p\n\n", node->lastNode);
+}
+
 #endif
