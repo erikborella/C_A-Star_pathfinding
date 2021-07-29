@@ -10,4 +10,4 @@ And just execute normally: \
 
 # Still in development
 
-Soon I will create an better inteface.
+Soon I will create a better inteface.
